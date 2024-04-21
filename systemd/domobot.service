@@ -1,0 +1,15 @@
+[Unit]
+Description=domo_bot daemon
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/bots/domo_bot
+ExecStart=/bots/domo_bot/venv/bin/python3 /bots/domo_bot/main.py
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
